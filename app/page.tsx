@@ -4,8 +4,8 @@ export default async function Home() {
   const projects = await getProjects()
   return (
     <div>
-      {projects.map((project: any) => (
-        <div key={project._id}>{project.name}</div>
+      {projects.map(({ _id, name }) => (
+        <div key={_id}>{name}</div>
       ))}
     </div>
   )
