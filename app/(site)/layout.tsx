@@ -19,10 +19,10 @@ export default async function RootLayout({
   const pages = await getPages()
   return (
     <html lang='en'>
-      <body className='max-w-3xl mx-auto py-10'>
+      <body className='max-w-4xl mx-auto py-10'>
         <header className='flex items-start justify-between'>
-          <div flex-1>
-            <Link href='/' className='text-7xl font-extrbold'>
+          <div>
+            <Link href='/' className='text-7xl font-extrbold  text-gray-600'>
               Hello I&apos;m{" "}
               <span className='bg-gradient-to-r from-sky-300 via-blue-600 to-red-700 bg-clip-text flex-1 text-transparent'>
                 {" "}
@@ -30,14 +30,16 @@ export default async function RootLayout({
               </span>
               !
             </Link>
-            <p className='mt-5 text-2xl text-gray-600'>Check out my music!</p>
+            <p className='mt-5 text-2xl text-gray-600 tracking-wider bg-gradient-to-r from-sky-300 via-blue-600 to-red-700 bg-clip-text text-transparent'>
+              Composer. Guitarist. Explorer.
+            </p>
           </div>
           <div className='flex items-center gap-5 text-sm text-gray-600'>
             {pages.map((page) => (
               <Link
                 key={page._id}
                 href={`/${page.slug}`}
-                className='bg-gray-100 rounded-lg text-gray-500 font-bold ml-5 px-4 whitespace-nowrap hover:bg-pink-500 hover:text-pink-100 transition'
+                className='bg-gray-100 rounded-lg text-gray-700 max-w-l font-bold ml-5 p-3 whitespace-nowrap hover:bg-pink-500 hover:text-pink-100 transition'
               >
                 {page.title}
               </Link>
