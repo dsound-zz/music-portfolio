@@ -10,11 +10,8 @@ export default async function Page({ params }: Props) {
   const page = await getPage(params?.slug)
 
   return (
-    <div>
-      <h1 className='bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent text-5xl drop-shadow font-extrabold'>
-        {page.title}
-      </h1>
-      <div className='text-lg text-gray-700 mt-10'>
+    <div className='max-w-2xl mx-auto py-5'>
+      <div className='text-4xl text-gray-500 mt-10 leading-loose tracking-wide'>
         <PortableText value={page.content} />
       </div>
     </div>

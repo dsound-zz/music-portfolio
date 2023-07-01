@@ -19,34 +19,39 @@ export default async function RootLayout({
   const pages = await getPages()
   return (
     <html lang='en'>
-      <body className='max-w-4xl mx-auto py-10'>
-        <header className='flex items-start justify-between'>
+      <body className='max-w-screen-4xl'>
+        <header
+          className='flex items-start justify-between bg-slate-300 p-10
+        '
+        >
           <div>
-            <Link href='/' className='text-7xl font-extrbold  text-gray-600'>
-              Hello I&apos;m{" "}
+            <Link
+              href='/'
+              className='text-7xl font-extrbold  text-gray-600 font-poppins font-thin'
+            >
+              Demian
               <span className='bg-gradient-to-r from-sky-300 via-blue-600 to-red-700 bg-clip-text flex-1 text-transparent'>
                 {" "}
-                Demian
+                Sims
               </span>
-              !
             </Link>
-            <p className='mt-5 text-2xl text-gray-600 tracking-wider bg-gradient-to-r from-sky-300 via-blue-600 to-red-700 bg-clip-text text-transparent'>
-              Composer. Guitarist. Explorer.
+            <p className='mt-5 text-2xl text-gray-600 tracking-widest bg-gradient-to-r from-sky-300 via-blue-600 to-red-700 bg-clip-text text-transparent'>
+              <span>Composer. Producer. Guitarist.</span>
             </p>
           </div>
-          <div className='flex items-center gap-5 text-sm text-gray-600'>
-            {pages.map((page) => (
+          <div className='flex items-center gap-5 text-sm text-gray-600 pr-9'>
+            {pages.map(({ _id, slug, title }) => (
               <Link
-                key={page._id}
-                href={`/${page.slug}`}
-                className='bg-gray-100 rounded-lg text-gray-700 max-w-l font-bold ml-5 p-3 whitespace-nowrap hover:bg-pink-500 hover:text-pink-100 transition'
+                key={_id}
+                href={`/${slug}`}
+                className='grow shrink-0 basis-2/4 bg-sky-300 rounded-lg ml-5 p-3 whitespace-nowrap hover:bg-blue-400 hover:text-pink-100 transition'
               >
-                {page.title}
+                <p className='text-center text-gray-600'>{title}</p>
               </Link>
             ))}
           </div>
         </header>
-        <main className='py-20'>{children}</main>
+        <main className='py-5'>{children}</main>
       </body>
     </html>
   )
