@@ -11,8 +11,8 @@ export default async function Page({ params }: Props) {
 
   return (
     <div className='max-w-2xl mx-auto py-5'>
-      <div className='text-4xl text-gray-500 mt-10 leading-loose tracking-wide'>
-        <PortableText value={page.content} />
+      <div className='text-2xl md:text-4xl text-gray-500 text-center md:text-start mt-10 leading-loose tracking-wide'>
+        <PortableText value={page?.content} />
       </div>
     </div>
   )
