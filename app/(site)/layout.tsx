@@ -18,14 +18,6 @@ export default async function RootLayout({
 }) {
   // get all of our pages
   const pages = await getPages()
-  const pagesCopy = [...pages]
-  const newPage = {
-    _id: "0",
-    _createdAt: null,
-    title: "Home",
-    slug: "home",
-  } as Page
-  pagesCopy.unshift(newPage)
 
   return (
     <html lang='en'>
@@ -50,10 +42,10 @@ export default async function RootLayout({
             </p>
           </div>
           <div className='flex items-center gap-5 text-sm text-gray-600 pt-8 md:pt-0 pr-9'>
-            {pagesCopy.map(({ _id, slug, title }: Page) => (
+            {pages.map(({ _id, slug, title }: Page) => (
               <Link
                 key={_id}
-                href={slug === "home" ? "/" : `/${slug}`}
+                href={`/${slug}`}
                 className='grow shrink-0 basis-1/4 bg-sky-300 rounded-lg ml-5 p-3 whitespace-nowrap hover:bg-blue-400 hover:text-pink-100 transition'
               >
                 <p className='text-center text-gray-600'>{title}</p>
